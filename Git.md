@@ -102,7 +102,7 @@ Git 是目前世界上最先进的分布式版本控制系统，它是 Linux 之
 
 将公钥添加到 `github` 账号上的 `SSH Keys` 中。这样本地版本库和远程仓库就连接了。
 
-### 本地库和远程库同步（现有本地库后有远程库）
+### 本地库和远程库同步（先有本地库后有远程库）
 
 本地已经有一个本地仓库。
 
@@ -124,7 +124,7 @@ Git 是目前世界上最先进的分布式版本控制系统，它是 Linux 之
 
    `git push origin master`
 
-### 先创建远程库，然后克隆到本地（开发中的模式）
+### 先创建远程库后克隆到本地（开发中的模式）
 
 本地还没有一个本地仓库。
 
@@ -136,4 +136,41 @@ Git 是目前世界上最先进的分布式版本控制系统，它是 Linux 之
 
 3. 只要本地做了提交，就可以通过命令推送到远程库
 
-   `git push `
+   `git push origin master`
+
+## 分支管理
+
+`master`  分支是主分支。`HEAD` 指向的是当前分支，每个分支指向的是修改提交。
+
+每次提交 `master` 向前移动一步。
+
+### 查看分支
+
+`git branch`
+
+### 创建新的分支
+
+`git branch <branchName>`
+
+`branchName` 会指向 `master`，然后 `HEAD` 会指向 `branchName`，这样工作就在 `branchName` 分支上。
+
+### 切换到分支
+
+`git checkout branchName`一步到位，创建并切换 `git checkout -b branchName`
+
+`git switch branchName`一步到位，创建并切换 `git switch -v branchName`
+
+### 合并分支到当前分支
+
+切换回主分支 
+
+`git checkout master`  或  `git switch master`
+
+将某个分支合并到主分支上
+
+`git merge branchName`
+
+### 删除分支
+
+`git branch -d branchName`
+
